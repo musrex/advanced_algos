@@ -1,0 +1,7 @@
+.gitingore
+
+/venv
+
+.pdf
+.csv
+.zip
