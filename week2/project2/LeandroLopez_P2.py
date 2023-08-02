@@ -2,10 +2,20 @@ from LeandroLopez_AVL import *
 
 def main():
     ''' Main function 
-    This function instantiates out AVLTree class and inserts nodes into the tree
+    This is our main function. It instantiates the AVLTree class and the root node.
+    It runs on a while loop, prompting the user for input. Their input gets added to 
+    the AVL tree, deletes a node from the tree, or closes the program.
 
-    Input: None
-    Output: Prints the tree in post order
+    The program only accepts numeric inputs. If input is non-numeric, it will ignore the
+    value and return an error. 
+
+    Negative values will stop the while loop, ending the program.
+
+    If the input is unique, it will be added to the tree. If the value already exists,
+    it will be deleted from the tree.
+
+    Input: Integers
+    Output: Prints an AVL tree in post order
     '''
     tree = AVLTree()
     root = None
