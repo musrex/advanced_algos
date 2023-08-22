@@ -1,0 +1,1 @@
+Linear Programming has many useful applications. It can be used to optimize routes for delivery
