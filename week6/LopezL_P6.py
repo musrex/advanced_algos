@@ -31,7 +31,7 @@ def get_matrix_data(num_var):
     print('''Enter the data for the square matrix stating the constraint.
 You will be asked for each row individually.
 Separate each value by a space.
-For example: 2 1 8''')
+For example: 2 4 5''')
     for i in range(num_var):
         data = input("Enter the data for row " + str(i+1) + ": ")
         data = [float(x) for x in data.split()] 
@@ -95,6 +95,9 @@ def main():
     run = True
     while run:
         try:
+            # take the coefficients and multiply them by the result [25. 20.8333, 33.3333]
+            # iterete through coefficient[1] times x[1], coefficient[2] times x[2], etc
+            # first array x+y+z, second 300 gal 200 gal 300 gal
             num_var = int(input("Enter the number of variables: ")) # for example, 2 in slides, pants & jackets
             coefficients = get_coefficients(num_var)
             matrix_data = get_matrix_data(num_var)
@@ -104,7 +107,11 @@ def main():
             display_availability(constraints)
             print("\n")
             x = linear_problem(constraints, matrix_data)
+            profits = coefficients * x
+            total_profit = sum(profits)
+            print(f"The total profit is: {total_profit}")
             print(f"The optimal solution is: {x}")
+
             quit = input("Would you like to quit? (y/n): ")
             if quit == "y":
                 run = False
@@ -133,9 +140,9 @@ if __name__ == "__main__":
 # You will be asked for each row individually.
 # Separate each value by a space.
 # For example: 2 1 8
-# Enter the data for row 1: 2 1 8
-# Enter the data for row 2: 4 2 0
-# Enter the data for row 3: 5 4 3
+# Enter the data for row 1: 2 4 5
+# Enter the data for row 2: 1 2 4
+# Enter the data for row 3: 8 0 3
 # Enter the constraint limit for constraint 1: 300
 # Enter the constraint limit for constraint 2: 200
 # Enter the constraint limit for constraint 3: 200
@@ -150,4 +157,12 @@ if __name__ == "__main__":
 # | AVAIL. |      300.0|      200.0|      200.0| 
 # 
 # The optimal solution is: [ 91.66666667 -83.33333333  25.        ]
-# Would you like to quit? (y/n): 
+# Would you like to quit? (y/n):
+# 
+# take the coefficients and multiply them by the result [25. 20.8333, 33.3333]
+# 
+# iterete through coefficient[1] times x[1], coefficient[2] times x[2], etc
+
+# first array x+y+z, second 300 gal 200 gal 300 gal
+# 
+# profit 3000 2000 2000 
